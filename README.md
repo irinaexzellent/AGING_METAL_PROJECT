@@ -11,7 +11,7 @@ Python, Django, HTML, CSS
 Clone the repository and go to it in the command line:
 
 ```
-git clone git@github.com:irinaexzellent/hw05_final.git
+git clone git@github.com:irinaexzellent/aging_metal_project.git
 ```
 
 Create and activate a virtual environment:
