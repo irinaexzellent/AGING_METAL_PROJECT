@@ -12,12 +12,6 @@ from . import views
 
 app_name = 'users'
 
-
-from django.contrib.auth import get_user_model
-
-a = [(u.email, u.is_active, u.has_usable_password()) for u in get_user_model().objects.all()]
-print(a)
-
 urlpatterns = [
     path('signup/',
          views.SignUp.as_view(), name='signup'
