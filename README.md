@@ -42,8 +42,12 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 Add test data to the database:
+```
 Path to the database: AGING_METAL_PROJECT/aging_metal/db.sqlite3
+```
+```
 Path to the test data: AGING_METAL_PROJECT/aging_metal/test_data.sql
+```
 ```
 python manage.py runserver
 ```
