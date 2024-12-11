@@ -9,13 +9,14 @@ Python, Django, HTML, CSS
 
 # How to start a project:
 
-Clone the repository and go to it in the command line:
+Clone the repository:
 
 ```
-git clone [git@github.com:irinaexzellent/aging_metal_project.git](https://github.com/irinaexzellent/AGING_METAL_PROJECT
-)
+git clone https://github.com/irinaexzellent/AGING_METAL_PROJECT
 ```
+
 Create and activate a virtual environment:
+
 ```
 python3 -m venv env
 ```
@@ -34,10 +35,11 @@ python3 -m pip install --upgrade pip
 ```
 pip install -r requirements.txt
 ```
+
 ```
 cd aging_metal
 python manage.py makemigrations
-python manage.py makemigrations
+python manage.py migrate
 ```
 Add test data to the database:
 Path to the database: AGING_METAL_PROJECT/aging_metal/db.sqlite3
