@@ -1,6 +1,7 @@
 # ABOUT PROJECT
 
-The project is under development. At the moment, dynamic creation of tables is implemented
+The project is under development. 
+Dynamic creation of tables is implemented
 
 # TECHNOLOGIES USED
 
@@ -8,10 +9,10 @@ Python, Django, HTML, CSS
 
 # How to start a project:
 
-Clone the repository and go to it in the command line:
+Clone the repository:
 
 ```
-git clone git@github.com:irinaexzellent/hw05_final.git
+git clone https://github.com/irinaexzellent/AGING_METAL_PROJECT
 ```
 
 Create and activate a virtual environment:
@@ -20,19 +21,32 @@ Create and activate a virtual environment:
 python3 -m venv env
 ```
 ```
-source venc/Scripts/activate
+source venv/Scripts/activate
+```
+
+```
+cd AGING_METAL_PROJECT
 ```
 
 Install dependencies from file requirements.txt:
-
 ```
 python3 -m pip install --upgrade pip
 ```
 ```
 pip install -r requirements.txt
 ```
+
 ```
 cd aging_metal
+python manage.py makemigrations
+python manage.py migrate
+```
+Add test data to the database:
+```
+Path to the database: AGING_METAL_PROJECT/aging_metal/db.sqlite3
+```
+```
+Path to the test data: AGING_METAL_PROJECT/aging_metal/test_data.sql
 ```
 ```
 python manage.py runserver
