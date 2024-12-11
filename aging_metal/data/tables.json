@@ -1,0 +1,33 @@
+{
+	"document_type" : {
+		"label": "short_name"
+	},
+	"organization" : {
+		"label": "name"
+	},
+	"product_category": {
+		"label": "name"
+	},
+	"regulatory_document": {
+		"label": "name"
+	},
+	"property": {
+		"label": "name"
+	},
+	"steel_grade": {
+		"label": "name"
+	},
+	"test_report_metal": {
+		"label": "name"
+	},
+	"test_temperature": {
+		"label": "name"
+	},
+	"design": {
+		"label": "name"
+	},
+	"assortment": {
+		"label": "assortment_parameter"
+	},
+	"DEFAULTS_VALUES_FOR_LABEL" : ["name", "label", "value", "code"]
+}

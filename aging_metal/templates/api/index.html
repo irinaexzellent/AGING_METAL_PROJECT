@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">REFERENCES</th>
+      <th scope="col">MAIN TABLE</th>
+      <th scope="col">EXPERIMENTS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'document_type' %}">Document type</a></td>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'quality_document' %}">Quality document</a></td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'regulatory_document' %}">Regulatory document</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'design' %}">Design</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'organization' %}">Organization</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'product_category' %}">Product category</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'property' %}">Property</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'test_temperature' %}">Test temperature</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'steel_grade' %}">Steel grade</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'test_report_metal' %}">Test report metal</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td><a class="navbar-brand" href="{% url 'api:get_table' 'assortment' %}">Assortment</a></td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
