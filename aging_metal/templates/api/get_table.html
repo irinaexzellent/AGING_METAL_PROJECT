@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ name_table }}{% endblock %}
+{% load static %}
+{% block styles %}
+    <style type="text/css">
+        .table_context {
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    {% include 'includes/table.html' %}
+        <div class="container-fluid">
+            {% for table in lst_tables %}
+                {% if name_table == table %}
+                    <h4>
+                        <a href="{% url 'api:edit' name_table %}">
+                            <input type="submit" value="{{_('Add')}}" class="btn btn-primary">
+                        </a>
+                    </h4>
+                {% endif %}
+            {% endfor %}
+        </div>
+{% endblock %}

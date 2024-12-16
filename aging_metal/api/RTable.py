@@ -11,11 +11,41 @@ class RTable:
 
     name_table = None
 
+    _types = {}
+
+
     def __init__(self, name_table=""):
         self.name_table = name_table
         self.model = next((m for m in apps.get_models() if m._meta.db_table == name_table), None)
         self.object = getattr(self.model, 'objects')
         self.json_data = JsonData()
+        self.columns_classes = self.get_columns_classes()
+
+    def get_columns_classes(self, key=None):
+        parameters_fields = getattr(self.model, '_meta').get_fields()
+        data_columns = {}
+        for _field in parameters_fields:
+            if 'related_model' in _field.__dict__:
+                d = (type(_field).__name__, _field.__dict__['related_model'])
+            else:
+                d = (type(_field).__name__, None)
+
+            data_columns[_field.name] = d
+        return data_columns
+
+    def get_db_type(self, key=None):
+        """
+        Метод возвращает название типа данных для конкретной бд
+
+        :param str key: название типа данных
+        :return: тип данных для бд / если key=None, то возвращаем все типы
+        """
+        _type = None
+        if key is None:
+            return self._db_types
+        elif key in self._db_types:
+            _type = self._db_types[key]
+        return _type
 
     def get_name_fields(self):
         total_records = self.object.all()

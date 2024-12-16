@@ -5,15 +5,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="img/fav/fav.ico" type="image">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
   <meta name="msapplication-TileColor" content="#000">
   <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+
   <title>{% block title %}{% endblock %}</title>
 </head>
+{% block base_styles %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{% endblock %}
+{% block vend_styles %}
+  <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+{% endblock %}
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'dataTables/css/jquery.dataTables.css' %}">
+    <link rel="stylesheet" href="{% static 'dataTables/css/buttons.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dataTables/css/select.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dataTables/css/dataTables.dateTime.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dataTables/css/responsive.dataTables.css' %}">
+    <link rel="stylesheet" href="{% static 'dataTables/css/select2.css' %}">
+    <link rel="stylesheet" href="{% static 'dataTables/css/jquery.datetimepicker.css' %}">
+{% endblock %}
   <body>
     <header>
       {% include 'includes/header.html' %}
@@ -28,3 +41,33 @@
         {% include 'includes/footer.html' %}
     </footer>
 </body>
+
+{% block base_scripts %}
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+{% endblock %}
+
+{% block vend_scripts %}
+  <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+{% endblock %}
+
+{% block page_scripts %}
+  <script src="{% static 'js/menuadaptiv.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'dataTables/js/jquery.dataTables.js' %}"></script>
+  <script src="{% static 'dataTables/js/dataTables.buttons.min.js' %}"></script>
+  <script src="{% static 'dataTables/js/buttons.print.min.js' %}"></script>
+  <script src="{% static 'dataTables/js/jszip/jszip.min.js' %}"></script>
+  <script src="{% static 'dataTables/js/buttons.html5.min.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+    $('table').DataTable({
+        pageLength: 50,
+        dom: 'lBfrtip',
+        responsive: true,
+        aaSorting: [],
+
+    });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ name_table }}{% endblock %}
+{% load static %}
+{% block styles %}
+    <style type="text/css">
+        .table_context {
+        }
+    </style>
+{% endblock %}
+{% block content %}
+{% include 'api/form.html' %}
+{% endblock %}
