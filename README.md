@@ -1,11 +1,13 @@
 # ABOUT PROJECT
 
-The project is under development. 
-Dynamic creation of tables is implemented
+The project is under development.
+Implemented in the project: 
+1. dynamic creation of tables and output using DataTables
+2. dynamic generation of data addition forms.
 
 # TECHNOLOGIES USED
 
-Python, Django, HTML, CSS
+Python, Django, jQuery, HTML, CSS
 
 # How to start a project:
 
