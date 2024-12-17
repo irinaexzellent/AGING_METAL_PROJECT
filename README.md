@@ -2,8 +2,9 @@
 
 The project is under development.
 Implemented in the project: 
-1. dynamic creation of tables and output using DataTables
-2. dynamic generation of data addition forms.
+1. dynamic creation of tables and output using DataTables;
+2. dynamic generation of forms;
+3. adding data to tables.
 
 # TECHNOLOGIES USED
 
