@@ -21,8 +21,11 @@ class RTable:
         self.json_data = JsonData()
         self.columns_classes = self.get_columns_classes()
 
+    def get_parameter_fields(self):
+        return getattr(self.model, '_meta').get_fields()
+
     def get_columns_classes(self, key=None):
-        parameters_fields = getattr(self.model, '_meta').get_fields()
+        parameters_fields = self.get_parameter_fields()
         data_columns = {}
         for _field in parameters_fields:
             if 'related_model' in _field.__dict__:
@@ -32,6 +35,26 @@ class RTable:
 
             data_columns[_field.name] = d
         return data_columns
+
+    def get_primary_key(self):
+        parameters_fields = self.get_parameter_fields()
+        return [_field.name for _field in parameters_fields if type(_field).__name__ == 'BigAutoField']
+
+    def get_many_to_one(self):
+        parameters_fields = self.get_parameter_fields()
+        return [_field.name for _field in parameters_fields if type(_field).__name__ == 'ManyToOneRel']
+
+    def get_name_columns(self):
+        parameters_fields = self.get_parameter_fields()
+        return [_field.name for _field in parameters_fields]
+
+    def get_main_name_columns(self):
+        lst_primary_key = self.get_primary_key()
+        lst_many_to_one = self.get_many_to_one()
+        lst_main_column = self.get_name_columns()
+        lst_without_many_to_one = list(set(lst_main_column) - set(lst_many_to_one))
+        lst_without_primary_key = list(set(lst_without_many_to_one) - set(lst_primary_key))
+        return lst_without_primary_key
 
     def get_db_type(self, key=None):
         """

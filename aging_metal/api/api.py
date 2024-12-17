@@ -6,8 +6,8 @@ class Api:
     @staticmethod
     def get_form():
         """
-        Метод возвращает класс для работы с формами
-        :return: класс Form
+        The method returns a class for working with forms.
+        :return: class Form
         :rtype class:
         """
         return Form

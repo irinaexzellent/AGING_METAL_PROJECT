@@ -1,6 +1,5 @@
-{{ form.csrf_token }}
+{% csrf_token %}
 {% if form.error %}<div class="alert alert-danger">{{ form.error }}</div><hr/>{% endif %}
-
 {% for field in form %}
         {{ field.label}}
         <div class='my-field'>
