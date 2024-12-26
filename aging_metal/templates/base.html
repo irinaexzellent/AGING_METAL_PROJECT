@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="{% static 'dataTables/css/dataTables.dateTime.min.css' %}">
     <link rel="stylesheet" href="{% static 'dataTables/css/responsive.dataTables.css' %}">
     <link rel="stylesheet" href="{% static 'dataTables/css/select2.css' %}">
-    <link rel="stylesheet" href="{% static 'dataTables/css/jquery.datetimepicker.css' %}">
 {% endblock %}
   <body>
     <header>
@@ -52,22 +51,23 @@
 {% endblock %}
 
 {% block page_scripts %}
-  <script src="{% static 'js/menuadaptiv.js' %}"></script>
-  <script src="{% static 'js/jquery.min.js' %}"></script>
-  <script src="{% static 'dataTables/js/jquery.dataTables.js' %}"></script>
-  <script src="{% static 'dataTables/js/dataTables.buttons.min.js' %}"></script>
-  <script src="{% static 'dataTables/js/buttons.print.min.js' %}"></script>
-  <script src="{% static 'dataTables/js/jszip/jszip.min.js' %}"></script>
-  <script src="{% static 'dataTables/js/buttons.html5.min.js' %}"></script>
-  <script type="text/javascript">
+    <script src="{% static 'js/menuadaptiv.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'dataTables/js/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'dataTables/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'dataTables/js/buttons.print.min.js' %}"></script>
+    <script src="{% static 'dataTables/js/jszip/jszip.min.js' %}"></script>
+    <script src="{% static 'dataTables/js/buttons.html5.min.js' %}"></script>
+    <script type="text/javascript">
     $(document).ready(function(){
-    $('table').DataTable({
-        pageLength: 50,
-        dom: 'lBfrtip',
-        responsive: true,
-        aaSorting: [],
+        $('table').DataTable({
+            pageLength: 50,
+            dom: 'lBfrtip',
+            responsive: true,
+            aaSorting: [],
 
-    });
+        });
+
     });
 </script>
 {% endblock %}

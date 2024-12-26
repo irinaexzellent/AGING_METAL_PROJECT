@@ -13,7 +13,7 @@
             {% for table in lst_tables %}
                 {% if name_table == table %}
                     <h4>
-                        <a href="{% url 'api:edit' name_table %}">
+                        <a href="{% url 'api:add' name_table %}">
                             <input type="submit" value="{{_('Add')}}" class="btn btn-primary">
                         </a>
                     </h4>

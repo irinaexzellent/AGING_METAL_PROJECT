@@ -46,7 +46,6 @@ class Form:
                 fields[column] = forms.DateInput(),
                 widgets.update(
                     {column: forms.DateInput(
-                        format=('%m/%d/%Y'),
                         attrs={'class': 'form-control',
                                'placeholder': 'Select a date',
                                'type': 'date'}),
@@ -61,7 +60,7 @@ class Form:
                 widgets.update(
                     {column: forms.Select(
                         attrs={'class': 'form-control',
-                               'placeholder': 'Select a date',}
+                               'placeholder': 'Select',}
                     )
                     }
                 )

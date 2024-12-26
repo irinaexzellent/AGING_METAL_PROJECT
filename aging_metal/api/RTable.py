@@ -3,6 +3,7 @@ import pandas as pd
 from django.apps import apps
 
 from .json import JsonData
+from .utils import Utils
 
 class RTable:
     """
@@ -74,21 +75,26 @@ class RTable:
         total_records = self.object.all()
         return [item.name for item in total_records.model._meta.concrete_fields]
 
-    def get_df(self):
+    def get_df(self, edit_url):
+        edit_url += 'edit/'
         total_records = self.object.all()
         fields = self.get_name_fields()
         dict_fk_fields_and_related_tables = {}
-        for field in fields:
-            d = getattr(self.model, field)
-            a = d.field.__dict__
-            if 'related_fields' in a:
-                dict_fk_fields_and_related_tables[field] = d.field.related_model._meta.db_table
-
         df = pd.DataFrame(
             total_records.values(*fields),
             columns=fields
         )
+        edit_vals = []
+        columns_pk = self.get_primary_key()
+        i = 0
+        for index, row in df.iterrows():
+            str_icon = ''
+            pk = df.loc[index, columns_pk[0]]
+            str_icon += Utils.create_edit_icon(self.name_table, pk, edit_url=edit_url, target_blank=False)
+            edit_vals.append(str_icon)
+            i += 1
 
+        df.insert(0, '', edit_vals, True)
         dict_unique_values_for_fk_fields = {}
         for field, related_table in dict_fk_fields_and_related_tables.items():
             json_data = JsonData()
