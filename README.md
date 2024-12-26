@@ -4,7 +4,7 @@ The project is under development.
 Implemented in the project: 
 1. dynamic creation of tables and output using DataTables;
 2. dynamic generation of forms;
-3. adding data to tables.
+3. adding and editing data to tables.
 
 # TECHNOLOGIES USED
 
