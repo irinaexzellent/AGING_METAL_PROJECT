@@ -1,0 +1,49 @@
+.main-table {
+    border-collapse:separate;
+    width: 100%;
+    border-spacing: 5px;
+    border-radius:5px;
+}
+.table-pk{
+border-collapse:separate;
+    width: 200px;
+    border-spacing: 5px;
+    border-radius:5px;
+    }
+td.form-label-required {
+    width: 20%;
+    text-align: right;
+    padding: 2px;
+}
+td.form-label {
+    width: 20%;
+    text-align: right;
+    padding: 2px;
+}
+td.field {
+   width: 30%;
+}
+.green{
+    background-color: #DDFEDD;
+}
+.red{
+    background-color: #fadbd8;
+}
+td.name-error {
+    font-size: 9px;
+    text-align: center;
+}
+.form-control {
+    background-color: #fffaee;
+    width: auto;
+}
+.select2-container--default .select2-selection--single{
+    background-color: #fffaee;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+  width: 200px;
+  font-size: 14px;
+}
+.select2-dropdown{
+    background-color: #fffaee;
+}

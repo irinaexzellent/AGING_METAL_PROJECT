@@ -1,42 +1,8 @@
 {% load static %}
-<div class="container-fluid">
-  <div id="page-nav-container" class="container page-nav-container_st">
-    <nav id="pagenavbar" class="pagenavbar">
-      <ul class="nav navbar-nav">
-
-          <a class="dropdown-toggle" href="{% url 'api:index' %}">
-            <img src="{% static 'img/metal.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-            <span style="color:black">Main menu</a>
-
-
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav navbar-nav" href="{% url 'users:password_change' %}">Change password</a>
-        </li>
-        <li class="nav-item current-section">
-          <a class="nav navbar-nav" href="{% url 'users:logout' %}">Log out</a>
-        </li>
-        <li>
-          User: {{ user.username }}
-        <li>
-        {% else %}
-        <li class="nav-itemAcurrent-section">
-          <a class="nav navbar-nav
-          {% if request.resolver_match.view_name  == 'users:login' %}
-          active
-          {% endif %}"
-          href="{% url 'users:login' %}">Log in</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav navbar-nav
-          {% if request.resolver_match.view_name  == 'users:signup' %}
-          active
-          {% endif %}"
-          href="{% url 'users:signup' %}">Registration</a>
-        </li>
-        {% endif %}
-      </ul>
-
-    </nav>
-  </div>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="nav navbar-nav" href="{% url 'api:index' %}"><span style="color:red">Aging metal</a>
+        </div>
+    </div>
+</nav>

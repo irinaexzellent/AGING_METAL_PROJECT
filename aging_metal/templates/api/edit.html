@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "api/index.html" %}
 {% block title %}{{ name_table }}{% endblock %}
 {% load static %}
 {% block styles %}
@@ -7,9 +7,12 @@
         }
     </style>
 {% endblock %}
-{% block content %}
+{% block main_content %}
+<h2 class="content-header">name_table</h2><br>
+<div class="col-sm-10">
     <form method="post" enctype="multipart/form-data">
         {% include 'api/form.html' %}
         <input name="btn_save" type="submit" value="Save" class="btn btn-success">
     </form>
+</div>
 {% endblock %}

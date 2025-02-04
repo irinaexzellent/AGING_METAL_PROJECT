@@ -1,23 +1,40 @@
-{% extends "base.html" %}
+{% extends "api/index.html" %}
 {% block title %}{{ name_table }}{% endblock %}
 {% load static %}
 {% block styles %}
-    <style type="text/css">
-        .table_context {
-        }
-    </style>
 {% endblock %}
-{% block content %}
-    {% include 'includes/table.html' %}
-        <div class="container-fluid">
-            {% for table in lst_tables %}
-                {% if name_table == table %}
-                    <h4>
-                        <a href="{% url 'api:add' name_table %}">
-                            <input type="submit" value="{{_('Add')}}" class="btn btn-primary">
-                        </a>
-                    </h4>
-                {% endif %}
-            {% endfor %}
-        </div>
+{% block main_content %}
+    <h2 class="content-header">{{name_table}}</h2>
+    <div class="table_context">
+        {{ df_html | safe }}
+    </div>
+    {% for table in lst_tables %}
+        {% if name_table == table %}
+            <h4>
+                <a href="{% url 'api:add' name_table %}">
+                    <input type="submit" value="{{_('Add')}}" class="btn btn-primary">
+                </a>
+            </h4>
+        {% endif %}
+    {% endfor %}
+    <hr>
+{% endblock %}
+{% block page_scripts %}
+    {{ block.super }}
+    <script src="{% static 'dataTables/js/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'dataTables/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'dataTables/js/buttons.print.min.js' %}"></script>
+    <script src="{% static 'dataTables/js/jszip/jszip.min.js' %}"></script>
+    <script src="{% static 'dataTables/js/buttons.html5.min.js' %}"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('table').DataTable({
+            pageLength: 10,
+            dom: 'lBfrtip',
+            responsive: true,
+            aaSorting: [],
+
+        });
+    });
+</script>
 {% endblock %}

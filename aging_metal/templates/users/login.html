@@ -1,71 +1,33 @@
-{% extends "base.html" %}
+{% extends "api/index.html" %}
+{% load static %}
 {% block title %}Log in{% endblock %}
-{% block content %}
+{% block page_styles %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
+{% block main_content %}
 {% load user_filters %}
-  <div class="row justify-content-center">
-    <div class="col-md-8 p-5">
-      <div class="card">
-        <div class="card-header">
-          Login to the site
-        </div>
-        <div class="card-body">
-          {% if form.errors %}
-              {% for field in form %}
-                {% for error in field.errors %}
-                  <div class="alert alert-danger">
-                    {{ error|escape }}
-                  </div>
-                {% endfor %}
-              {% endfor %}
-              {% for error in form.non_field_errors %}
-                <div class="alert alert-danger">
-                  {{ error|escape }}
-                </div>
-              {% endfor %}
-          {% endif %}
-
-          <form method="post"
-            {% if action_url %}
-              action="{% url action_url %}"
-            {% endif %}
-          >
-          {% csrf_token %}
-
-          {% for field in form %}
-            <div class="form-group row my-3"
-              {% if field.field.required %}
-                aria-required="true"
-              {% else %}
-                aria-required="false"
-              {% endif %}
-            >
-              <label for="{{ field.id_for_label }}">
-                {{ field.label }}
-                  {% if field.field.required %}
-                    <span class="required text-danger">*</span>
-                  {% endif %}
-              </label>
-              <div>
-              {{ field|addclass:'form-control' }}
-                {% if field.help_text %}
-                  <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
-                    {{ field.help_text|safe }}
-                  </small>
-                {% endif %}
-              </div>
-            </div>
-          {% endfor %}
-          <div class="col-md-6 offset-md-4">
-            <button type="submit" class="btn btn-primary">
-              Log in
-            </button>
-            <a href="{% url 'users:password_change' %}" class="btn btn-link">
-              Fogot your password?
-            </a>
-          </div>
-          </form>
-        </div> <!-- card body -->
-      </div> <!-- card -->
-    </div> <!-- col -->
-</div> <!-- row -->
+<h2 class="content-header">Login to the site</h2><br>
+<div class="col-sm-10">
+<form method="post" {% if action_url %} action="{% url action_url %}" {% endif %}>
+    {% csrf_token %}
+    <table class="main-table">
+        <tr class="row-main-table">
+            <td class="form-label-required"> {{ form.username.label }}* </td>
+            <td class="field"> {{ form.username|addclass:'form-control' }}</td>
+            <td class="form-label-required"> {{ form.password.label }}* </td>
+            <td class="field"> {{ form.password|addclass:'form-control' }} </td>
+        </tr>
+        <tr class="row-main-table">
+            <td colspan="2" class="name-error"> {% include "api/render_error.html" with list_error_of_fields=form.username %} </td>
+            <td colspan="2" class="name-error"> {% include "api/render_error.html" with list_error_of_fields=form.password %} </td>
+        </tr>
+    </table>
+    <p>* - поля обязательны к заполнению</p>
+    <div class="col-sm-10">
+    <button type="submit" class="btn btn-primary">Log in</button>
+        <a href="{% url 'users:password_change' %}" class="btn btn-link">Fogot your password?</a>
+    </div>
+</form>
+</div>
 {% endblock %}
